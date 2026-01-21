@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Japanese Coach (Kyoto) | Language Lab</title>
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/chat.css">
+</head>
+<body>
+  <nav class="site-nav">
+    <a href="../" class="logo">Connor Harrison</a>
+    <div class="nav-links">
+      <a href="../">Home</a>
+      <a href="../about.html">About</a>
+      <a href="../projects.html">Projects</a>
+      <a href="./" class="active">Language Lab</a>
+    </div>
+  </nav>
+
+  <main class="chat-container">
+    <header class="coach-header">
+      <h1>Japanese Coach</h1>
+      <p class="coach-tagline">Explore Kyoto dialect with cultural depth and recognition-first learning</p>
+      <span class="coach-badge" style="background-color: #dc2626;">京都</span>
+    </header>
+
+    <!-- API Key Section -->
+    <div id="api-key-section" class="api-key-section">
+      <h2>Start a Session</h2>
+      <p>
+        Enter your Anthropic API key to begin. Your key is stored locally
+        in your browser and only sent directly to Anthropic.
+      </p>
+      <input
+        type="password"
+        id="api-key-input"
+        placeholder="sk-ant-api03-..."
+        autocomplete="off"
+      >
+      <button id="start-session" class="btn btn-primary" style="width: 100%;">
+        Start Learning
+      </button>
+      <p class="privacy-note">
+        Need an API key? Get one at
+        <a href="https://console.anthropic.com/" target="_blank">console.anthropic.com</a>
+      </p>
+    </div>
+
+    <!-- Chat Interface -->
+    <div id="chat-interface" class="chat-interface hidden">
+      <div id="chat-messages" class="chat-messages">
+        <!-- Messages will be rendered here -->
+      </div>
+
+      <form id="chat-form" class="chat-input-form">
+        <textarea
+          id="user-input"
+          placeholder="Type your message... (Enter to send, Shift+Enter for new line)"
+          rows="2"
+        ></textarea>
+        <button type="submit">Send</button>
+      </form>
+
+      <div class="session-controls">
+        <button id="export-session">Export Session</button>
+        <button id="feedback-btn">Give Feedback</button>
+        <button id="end-session" class="danger">End Session</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Feedback Modal -->
+  <div id="feedback-modal" class="modal hidden">
+    <div class="modal-content" style="position: relative;">
+      <button id="close-modal" class="modal-close">&times;</button>
+      <h2>Session Feedback</h2>
+      <form id="feedback-form">
+        <label>
+          <span>How was this session?</span>
+          <select id="session-rating">
+            <option value="excellent">Excellent - Very helpful</option>
+            <option value="good" selected>Good - Helpful overall</option>
+            <option value="fair">Fair - Some issues</option>
+            <option value="poor">Poor - Not helpful</option>
+          </select>
+        </label>
+
+        <label>
+          <span>General notes or comments:</span>
+          <textarea id="feedback-notes" rows="2" placeholder="What worked well? What could be improved?"></textarea>
+        </label>
+
+        <label>
+          <span>Any errors the coach made?</span>
+          <textarea id="error-notes" rows="2" placeholder="Grammar mistakes, wrong vocabulary, cultural errors..."></textarea>
+        </label>
+
+        <label>
+          <span>New vocabulary or expressions you learned:</span>
+          <textarea id="vocabulary-notes" rows="2" placeholder="おおきに, はる forms, etc..."></textarea>
+        </label>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%;">
+          Submit Feedback
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../assets/js/config.js"></script>
+  <script src="../assets/js/data-collector.js"></script>
+  <script src="../assets/js/chat-core.js"></script>
+  <script src="../assets/js/chat-japanese.js"></script>
+</body>
+</html>
